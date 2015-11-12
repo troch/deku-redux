@@ -60,7 +60,7 @@ function connect(mapStateToProps = defaultMapStateToProps, mapDispatchToProps = 
                   '[deku-redux][connect] Could not recognise store. Did you use `storePlugin` with a valid redux store?'
                 );
 
-                connectRegistry{id} = {};
+                connectRegistry[id] = {};
                 setStateProps(id, computeStateProps(props));
                 setDispatchProps(id, computeDispatchProps(props));
             },
@@ -95,7 +95,7 @@ function connect(mapStateToProps = defaultMapStateToProps, mapDispatchToProps = 
             },
 
             beforeUnmount({ id }) {
-                connectRegistry{id} = undefined;
+                connectRegistry[id] = undefined;
             },
 
             render({ id, props }) {
@@ -105,7 +105,7 @@ function connect(mapStateToProps = defaultMapStateToProps, mapDispatchToProps = 
 
                 // TODO: use _.omit or similar
                 const parentProps = Object.keys(props)
-                    .filter(prop => prop !== 'store' || prop !== 'storeState');
+                    .filter(prop => prop !== 'store' || prop !== 'storeState')
                     .reduce((acc, prop) => {
                         acc[prop] = props[prop];
                         return acc;

@@ -2,9 +2,10 @@
   "name": "deku-redux",
   "version": "1.0.0-alpha.1",
   "description": "Redux bindings for deku",
-  "main": "index.js",
+  "main": "dist/commonjs/index.js",
   "scripts": {
-    "test": "_mocha"
+    "test": "_mocha",
+    "build": "gulp build"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,19 @@
   },
   "devDependencies": {
     "component-mock": "0.0.2",
-    "mocha": "^2.3.3"
+    "del": "^2.0.2",
+    "gulp": "^3.9.0",
+    "gulp-babel": "^5.3.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.4.2",
+    "mocha": "^2.3.3",
+    "run-sequence": "^1.1.4",
+    "through2": "^2.0.0"
+  },
+  "peerDependencies": {
+    "deku": "^0.5.6",
+    "redux": "^3.0.4",
+    "virtual-element": "^1.2.0"
   }
 }
