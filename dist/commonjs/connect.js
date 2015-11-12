@@ -98,7 +98,7 @@ function connect() {
                 var props = _ref.props;
 
                 (0, _invariant2['default'])(props.store, '[deku-redux][connect] Could not find store. Did you use `storePlugin` on your deku tree?');
-                (0, _invariant2['default'])(this.store.getState && this.store.subscribe && this.store.subscribe, '[deku-redux][connect] Could not recognise store. Did you use `storePlugin` with a valid redux store?');
+                (0, _invariant2['default'])(props.store.getState && props.store.subscribe && props.store.subscribe, '[deku-redux][connect] Could not recognise store. Did you use `storePlugin` with a valid redux store?');
 
                 connectRegistry[id] = {};
                 setStateProps(id, computeStateProps(props));

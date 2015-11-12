@@ -57,7 +57,7 @@ function connect(mapStateToProps = defaultMapStateToProps, mapDispatchToProps = 
             afterMount({ id, props }, elm, setState) {
                 invariant(props.store, '[deku-redux][connect] Could not find store. Did you use `storePlugin` on your deku tree?');
                 invariant(
-                  this.store.getState && this.store.subscribe && this.store.subscribe,
+                  props.store.getState && props.store.subscribe && props.store.subscribe,
                   '[deku-redux][connect] Could not recognise store. Did you use `storePlugin` with a valid redux store?'
                 );
 
