@@ -66,7 +66,7 @@
             var dispatch = props.store.dispatch;
             var dispatchProps = mapDispatchToProps(dispatch, props);
 
-            (0, _invariant2['default'])((0, _isPlainObject2['default'])(stateProps), '[deku-redux][connect] mapDispatchToProps must return an object. Instead received %s', stateProps);
+            (0, _invariant2['default'])((0, _isPlainObject2['default'])(dispatchProps), '[deku-redux][connect] mapDispatchToProps must return an object. Instead received %s', dispatchProps);
 
             return dispatchProps;
         };
@@ -108,7 +108,7 @@
                     var id = _ref2.id;
                     var props = _ref2.props;
 
-                    var storeChanged = nextState.storeState !== state.storeState;
+                    var storeChanged = nextProps.storeState !== props.storeState;
                     var propsChanged = !(0, _shallowEquals['default'])(nextProps, props);
 
                     var computeNewStateProps = storeChanged || propsChanged && mappedStateUseProps;

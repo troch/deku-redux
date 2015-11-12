@@ -36,7 +36,7 @@ function connect(mapStateToProps = defaultMapStateToProps, mapDispatchToProps = 
         const dispatch = props.store.dispatch;
         const dispatchProps = mapDispatchToProps(dispatch, props);
 
-        invariant(isPlainObject(stateProps), '[deku-redux][connect] mapDispatchToProps must return an object. Instead received %s', stateProps);
+        invariant(isPlainObject(dispatchProps), '[deku-redux][connect] mapDispatchToProps must return an object. Instead received %s', dispatchProps);
 
         return dispatchProps;
     };
@@ -67,7 +67,7 @@ function connect(mapStateToProps = defaultMapStateToProps, mapDispatchToProps = 
             },
 
             shouldUpdate({ id, props }, nextProps) {
-                const storeChanged = nextState.storeState !== state.storeState;
+                const storeChanged = nextProps.storeState !== props.storeState;
                 const propsChanged = !shallowEquals(nextProps, props);
 
                 const computeNewStateProps = storeChanged || (propsChanged && mappedStateUseProps);

@@ -24,5 +24,5 @@ gulp.task('buildCommonJs', build('common', 'dist/commonjs'));
 gulp.task('buildUmd',      build('umd', 'dist/umd'));
 
 gulp.task('build', function() {
-    runSequence('clean', ['buildCommonJs', 'buildUmd']);
+    return runSequence('clean', ['buildCommonJs', 'buildUmd']);
 });
