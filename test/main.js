@@ -45,11 +45,19 @@ describe('deku-redux', function() {
         store.dispatch(increment());
 
         app.sources.storeState.should.eql({ count: 1 });
-        // console.log(app);
+    });
 
-        // var mock = Mock(app);
-        // var r = mock.render();
-        // console.log(r);
-        // render(app, document.getElementById('app'));
+    it('should connect components', function() {
+        var Component = { render: render };
+        function mapStateToProps(state) {
+            return state;
+        }
+
+        var app = tree()
+            .use(storePlugin(store))
+            .mount(element(connect(mapStateToProps)(Component)));
+
+        var mock = Mock(app.element.type);
+        console.log(mock.render());
     });
 });

@@ -2,6 +2,7 @@ import element from 'virtual-element';
 import { bindActionCreators } from 'redux';
 import shallowEquals  from 'is-equal-shallow';
 import isPlainObject from 'is-plain-object';
+import invariant from 'invariant';
 
 const defaultMapStateToProps = () => ({});
 const defaultMapDispatchToProps = dispatch => ({ dispatch });
