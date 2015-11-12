@@ -92,7 +92,7 @@
                     storeState: { source: 'storeState' }
                 },
 
-                afterMount: function afterMount(_ref, elm, setState) {
+                beforeMount: function beforeMount(_ref, elm, setState) {
                     var id = _ref.id;
                     var props = _ref.props;
 
@@ -145,10 +145,6 @@
                 render: function render(_ref4) {
                     var id = _ref4.id;
                     var props = _ref4.props;
-
-                    if (!props.store) {
-                        return null;
-                    }
 
                     // TODO: use _.omit or similar
                     var parentProps = Object.keys(props).filter(function (prop) {

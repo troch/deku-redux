@@ -54,7 +54,7 @@ function connect(mapStateToProps = defaultMapStateToProps, mapDispatchToProps = 
                 storeState: { source: 'storeState' }
             },
 
-            afterMount({ id, props }, elm, setState) {
+            beforeMount({ id, props }, elm, setState) {
                 invariant(props.store, '[deku-redux][connect] Could not find store. Did you use `storePlugin` on your deku tree?');
                 invariant(
                   props.store.getState && props.store.subscribe && props.store.subscribe,
@@ -100,10 +100,6 @@ function connect(mapStateToProps = defaultMapStateToProps, mapDispatchToProps = 
             },
 
             render({ id, props }) {
-                if (!props.store) {
-                    return null;
-                }
-
                 // TODO: use _.omit or similar
                 const parentProps = Object.keys(props)
                     .filter(prop => prop !== 'store' || prop !== 'storeState')
