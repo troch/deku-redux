@@ -1,2 +1,6 @@
 # deku-redux
-Bindings for redux in deku
+
+Bindings for redux in deku.
+
+#### Workin in progress
+
