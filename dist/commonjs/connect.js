@@ -22,6 +22,10 @@ var _isPlainObject = require('is-plain-object');
 
 var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
 
+var _invariant = require('invariant');
+
+var _invariant2 = _interopRequireDefault(_invariant);
+
 var defaultMapStateToProps = function defaultMapStateToProps() {
     return {};
 };
@@ -54,7 +58,7 @@ function connect() {
         var state = props.store.getState();
         var stateProps = mapStateToProps(state, props);
 
-        invariant((0, _isPlainObject2['default'])(stateProps), '[deku-redux][connect] mapStateToProps must return an object. Instead received %s', stateProps);
+        (0, _invariant2['default'])((0, _isPlainObject2['default'])(stateProps), '[deku-redux][connect] mapStateToProps must return an object. Instead received %s', stateProps);
 
         return stateProps;
     };
@@ -63,7 +67,7 @@ function connect() {
         var dispatch = props.store.dispatch;
         var dispatchProps = mapDispatchToProps(dispatch, props);
 
-        invariant((0, _isPlainObject2['default'])(stateProps), '[deku-redux][connect] mapDispatchToProps must return an object. Instead received %s', stateProps);
+        (0, _invariant2['default'])((0, _isPlainObject2['default'])(stateProps), '[deku-redux][connect] mapDispatchToProps must return an object. Instead received %s', stateProps);
 
         return dispatchProps;
     };
@@ -93,8 +97,8 @@ function connect() {
                 var id = _ref.id;
                 var props = _ref.props;
 
-                invariant(props.store, '[deku-redux][connect] Could not find store. Did you use `storePlugin` on your deku tree?');
-                invariant(this.store.getState && this.store.subscribe && this.store.subscribe, '[deku-redux][connect] Could not recognise store. Did you use `storePlugin` with a valid redux store?');
+                (0, _invariant2['default'])(props.store, '[deku-redux][connect] Could not find store. Did you use `storePlugin` on your deku tree?');
+                (0, _invariant2['default'])(this.store.getState && this.store.subscribe && this.store.subscribe, '[deku-redux][connect] Could not recognise store. Did you use `storePlugin` with a valid redux store?');
 
                 connectRegistry[id] = {};
                 setStateProps(id, computeStateProps(props));
@@ -157,7 +161,7 @@ function connect() {
 
                 var componentProps = mergeProps(parentProps, getStateProps(id), getDispatchProps(id));
 
-                invariant((0, _isPlainObject2['default'])(componentProps), '[deku-redux][connect] `mergeProps` function didn\'t return a plain object.');
+                (0, _invariant2['default'])((0, _isPlainObject2['default'])(componentProps), '[deku-redux][connect] `mergeProps` function didn\'t return a plain object.');
 
                 return (0, _virtualElement2['default'])(Component, componentProps);
             }
