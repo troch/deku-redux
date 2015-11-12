@@ -1,6 +1,6 @@
 {
   "name": "deku-redux",
-  "version": "1.0.0-alpha.1",
+  "version": "1.0.0",
   "description": "Redux bindings for deku",
   "main": "dist/commonjs/index.js",
   "scripts": {
