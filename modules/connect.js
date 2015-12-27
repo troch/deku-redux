@@ -112,7 +112,7 @@ function connect(mapStateToProps = defaultMapStateToProps, mapDispatchToProps = 
                 invariant(isPlainObject(componentProps), '[deku-redux][connect] `mergeProps` function didn\'t return a plain object.');
 
                 // <Component {...componentProps} />
-                return { type: Component, children: componentProps.children, attributes: componentProps };
+                return { type: Component, children: props.children, attributes: componentProps };
             }
         };
 
