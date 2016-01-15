@@ -1,4 +1,3 @@
-import element from 'virtual-element';
 import { bindActionCreators } from 'redux';
 import shallowEquals  from 'is-equal-shallow';
 import isPlainObject from 'is-plain-object';
@@ -112,7 +111,8 @@ function connect(mapStateToProps = defaultMapStateToProps, mapDispatchToProps = 
 
                 invariant(isPlainObject(componentProps), '[deku-redux][connect] `mergeProps` function didn\'t return a plain object.');
 
-                return element(Component, componentProps);
+                // <Component {...componentProps} />
+                return { type: Component, children: props.children, attributes: componentProps };
             }
         };
 
