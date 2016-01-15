@@ -48,7 +48,8 @@
     "rollup-plugin-babel": "^2.3.8",
     "rollup-plugin-commonjs": "^2.1.0",
     "rollup-plugin-npm": "^1.2.1",
-    "should": "^7.1.1"
+    "should": "^7.1.1",
+    "virtual-element": "^1.2.0"
   },
   "peerDependencies": {
     "deku": ">=0.5.6 <2.0.0",
