@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/troch/deku-redux.svg?branch=master)](https://travis-ci.org/troch/deku-redux)
+
 # deku-redux
 
 > Bindings for redux in deku.
