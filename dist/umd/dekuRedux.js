@@ -93,7 +93,7 @@
       });
     }
 
-    var index$4 = __commonjs(function (module) {
+    var index$3 = __commonjs(function (module) {
     /*!
      * is-primitive <https://github.com/jonschlinkert/is-primitive>
      *
@@ -110,7 +110,7 @@
     };
     });
 
-    var require$$0 = (index$4 && typeof index$4 === 'object' && 'default' in index$4 ? index$4['default'] : index$4);
+    var require$$0$1 = (index$3 && typeof index$3 === 'object' && 'default' in index$3 ? index$3['default'] : index$3);
 
     var index = __commonjs(function (module) {
     /*!
@@ -122,7 +122,7 @@
 
     'use strict';
 
-    var isPrimitive = require$$0;
+    var isPrimitive = require$$0$1;
 
     module.exports = function isEqual(a, b) {
       if (!a && !b) {
@@ -148,14 +148,9 @@
     };
     });
 
-    var index$1 = (index && typeof index === 'object' && 'default' in index ? index['default'] : index);
+    var shallowEquals = (index && typeof index === 'object' && 'default' in index ? index['default'] : index);
 
-
-    var shallowEquals = Object.freeze({
-      default: index$1
-    });
-
-    var index$5 = __commonjs(function (module) {
+    var index$2 = __commonjs(function (module) {
     /*!
      * isobject <https://github.com/jonschlinkert/isobject>
      *
@@ -170,9 +165,9 @@
     };
     });
 
-    var require$$0$1 = (index$5 && typeof index$5 === 'object' && 'default' in index$5 ? index$5['default'] : index$5);
+    var require$$0 = (index$2 && typeof index$2 === 'object' && 'default' in index$2 ? index$2['default'] : index$2);
 
-    var index$2 = __commonjs(function (module) {
+    var index$1 = __commonjs(function (module) {
     /*!
      * is-plain-object <https://github.com/jonschlinkert/is-plain-object>
      *
@@ -182,7 +177,7 @@
 
     'use strict';
 
-    var isObject = require$$0$1;
+    var isObject = require$$0;
 
     function isObjectObject(o) {
       return isObject(o) === true && Object.prototype.toString.call(o) === '[object Object]';
@@ -211,12 +206,7 @@
     };
     });
 
-    var index$3 = (index$2 && typeof index$2 === 'object' && 'default' in index$2 ? index$2['default'] : index$2);
-
-
-    var isPlainObject = Object.freeze({
-      default: index$3
-    });
+    var isPlainObject = (index$1 && typeof index$1 === 'object' && 'default' in index$1 ? index$1['default'] : index$1);
 
     var invariant = __commonjs(function (module) {
     /**
