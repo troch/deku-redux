@@ -40,8 +40,7 @@
     "through2": "^2.0.0"
   },
   "peerDependencies": {
-    "deku": "^0.5.6",
-    "redux": "^3.0.4",
-    "virtual-element": "^1.2.0"
+    "deku": ">=0.5.6 <2.0.0",
+    "redux": "^3.0.4"
   }
 }
