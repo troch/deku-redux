@@ -1,16 +1,10 @@
 'use strict';
 
-Object.defineProperty(exports, '__esModule', {
-    value: true
-});
-
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-var _virtualElement = require('virtual-element');
-
-var _virtualElement2 = _interopRequireDefault(_virtualElement);
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
 
 var _redux = require('redux');
 
@@ -25,6 +19,8 @@ var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
 var _invariant = require('invariant');
 
 var _invariant2 = _interopRequireDefault(_invariant);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var defaultMapStateToProps = function defaultMapStateToProps() {
     return {};
@@ -47,7 +43,7 @@ function connect() {
     var mapDispatchToProps = arguments.length <= 1 || arguments[1] === undefined ? defaultMapDispatchToProps : arguments[1];
     var mergeProps = arguments.length <= 2 || arguments[2] === undefined ? defaultMergeProps : arguments[2];
 
-    if ((0, _isPlainObject2['default'])(mapDispatchToProps)) {
+    if ((0, _isPlainObject2.default)(mapDispatchToProps)) {
         mapDispatchToProps = wrapActionCreators(mapDispatchToProps);
     }
 
@@ -58,7 +54,7 @@ function connect() {
         var state = props.store.getState();
         var stateProps = mapStateToProps(state, props);
 
-        (0, _invariant2['default'])((0, _isPlainObject2['default'])(stateProps), '[deku-redux][connect] mapStateToProps must return an object. Instead received %s', stateProps);
+        (0, _invariant2.default)((0, _isPlainObject2.default)(stateProps), '[deku-redux][connect] mapStateToProps must return an object. Instead received %s', stateProps);
 
         return stateProps;
     };
@@ -67,7 +63,7 @@ function connect() {
         var dispatch = props.store.dispatch;
         var dispatchProps = mapDispatchToProps(dispatch, props);
 
-        (0, _invariant2['default'])((0, _isPlainObject2['default'])(dispatchProps), '[deku-redux][connect] mapDispatchToProps must return an object. Instead received %s', dispatchProps);
+        (0, _invariant2.default)((0, _isPlainObject2.default)(dispatchProps), '[deku-redux][connect] mapDispatchToProps must return an object. Instead received %s', dispatchProps);
 
         return dispatchProps;
     };
@@ -97,20 +93,19 @@ function connect() {
                 var id = _ref.id;
                 var props = _ref.props;
 
-                (0, _invariant2['default'])(props.store, '[deku-redux][connect] Could not find store. Did you use `storePlugin` on your deku tree?');
-                (0, _invariant2['default'])(props.store.getState && props.store.subscribe && props.store.subscribe, '[deku-redux][connect] Could not recognise store. Did you use `storePlugin` with a valid redux store?');
+                (0, _invariant2.default)(props.store, '[deku-redux][connect] Could not find store. Did you use `storePlugin` on your deku tree?');
+                (0, _invariant2.default)(props.store.getState && props.store.subscribe && props.store.subscribe, '[deku-redux][connect] Could not recognise store. Did you use `storePlugin` with a valid redux store?');
 
                 connectRegistry[id] = {};
                 setStateProps(id, computeStateProps(props));
                 setDispatchProps(id, computeDispatchProps(props));
             },
-
             shouldUpdate: function shouldUpdate(_ref2, nextProps) {
                 var id = _ref2.id;
                 var props = _ref2.props;
 
                 var storeChanged = nextProps.storeState !== props.storeState;
-                var propsChanged = !(0, _isEqualShallow2['default'])(nextProps, props);
+                var propsChanged = !(0, _isEqualShallow2.default)(nextProps, props);
 
                 var computeNewStateProps = storeChanged || propsChanged && mappedStateUseProps;
                 var computeNewDispatchProps = propsChanged && mappedDispatchUseProps;
@@ -120,7 +115,7 @@ function connect() {
 
                 if (computeNewStateProps) {
                     var _stateProps = computeStateProps(props);
-                    statePropsChanged = !(0, _isEqualShallow2['default'])(_stateProps, getStateProps(id));
+                    statePropsChanged = !(0, _isEqualShallow2.default)(_stateProps, getStateProps(id));
                     if (statePropsChanged) {
                         setStateProps(id, _stateProps);
                     }
@@ -128,7 +123,7 @@ function connect() {
 
                 if (computeNewDispatchProps) {
                     var dispatchProps = computeDispatchProps(props);
-                    dispatchPropsChanged = !(0, _isEqualShallow2['default'])(dispatchProps, getDispatchProps(id));
+                    dispatchPropsChanged = !(0, _isEqualShallow2.default)(dispatchProps, getDispatchProps(id));
                     if (dispatchPropsChanged) {
                         setDispatchProps(id, stateProps);
                     }
@@ -136,13 +131,11 @@ function connect() {
 
                 return propsChanged || statePropsChanged || dispatchPropsChanged;
             },
-
             beforeUnmount: function beforeUnmount(_ref3) {
                 var id = _ref3.id;
 
                 connectRegistry[id] = undefined;
             },
-
             render: function render(_ref4) {
                 var id = _ref4.id;
                 var props = _ref4.props;
@@ -157,9 +150,10 @@ function connect() {
 
                 var componentProps = mergeProps(parentProps, getStateProps(id), getDispatchProps(id));
 
-                (0, _invariant2['default'])((0, _isPlainObject2['default'])(componentProps), '[deku-redux][connect] `mergeProps` function didn\'t return a plain object.');
+                (0, _invariant2.default)((0, _isPlainObject2.default)(componentProps), '[deku-redux][connect] `mergeProps` function didn\'t return a plain object.');
 
-                return (0, _virtualElement2['default'])(Component, componentProps);
+                // <Component {...componentProps} />
+                return { type: Component, children: props.children, attributes: componentProps };
             }
         };
 
@@ -167,5 +161,4 @@ function connect() {
     };
 }
 
-exports['default'] = connect;
-module.exports = exports['default'];
+exports.default = connect;

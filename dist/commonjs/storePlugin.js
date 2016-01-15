@@ -1,6 +1,6 @@
 'use strict';
 
-Object.defineProperty(exports, '__esModule', {
+Object.defineProperty(exports, "__esModule", {
     value: true
 });
 var storePlugin = function storePlugin(store) {
@@ -14,5 +14,4 @@ var storePlugin = function storePlugin(store) {
     };
 };
 
-exports['default'] = storePlugin;
-module.exports = exports['default'];
+exports.default = storePlugin;
