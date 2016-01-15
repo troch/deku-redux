@@ -5,7 +5,8 @@
   "main": "dist/commonjs/index.js",
   "scripts": {
     "test": "_mocha",
-    "build": "gulp build"
+    "build": "gulp build",
+    "clog": "conventional-changelog -p angular -i CHANGELOG.md -w"
   },
   "repository": {
     "type": "git",
@@ -28,6 +29,7 @@
   },
   "devDependencies": {
     "component-mock": "0.0.2",
+    "conventional-changelog": "^0.5.3",
     "del": "^2.0.2",
     "gulp": "^3.9.0",
     "gulp-babel": "^5.3.0",
