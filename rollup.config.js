@@ -1,5 +1,5 @@
 import babel from 'rollup-plugin-babel';
-import npm from 'rollup-plugin-npm';
+import nodeResolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 
 const babelOptions = {
@@ -14,7 +14,7 @@ const babelOptions = {
 export default {
     entry: 'modules/index.js',
     format: 'umd',
-    plugins: [ babel(babelOptions), npm({ jsnext: true }), commonjs() ],
+    plugins: [ commonjs(), nodeResolve(), babel(babelOptions) ],
     moduleName: 'dekuRedux',
     moduleId: 'dekuRedux',
     dest: 'dist/umd/dekuRedux.js'
