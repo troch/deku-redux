@@ -1,6 +1,6 @@
 {
   "name": "deku-redux",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Redux bindings for deku",
   "main": "dist/commonjs/index.js",
   "jsnext:main": "modules/index.js",
@@ -11,7 +11,7 @@
     "build:cjs": "babel modules --out-dir dist/commonjs",
     "build:umd": "rollup -c",
     "build": "npm run clean && npm run build:cjs && npm run build:umd",
-    "clog": "conventional-changelog -p angular -i CHANGELOG.md -w"
+    "clog": "conventional-changelog -p angular -i CHANGELOG.md -w -r 0"
   },
   "repository": {
     "type": "git",
