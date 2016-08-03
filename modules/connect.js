@@ -87,7 +87,7 @@ function connect(mapStateToProps = defaultMapStateToProps, mapDispatchToProps = 
                     const dispatchProps = computeDispatchProps(props);
                     dispatchPropsChanged = !shallowEquals(dispatchProps, getDispatchProps(id));
                     if (dispatchPropsChanged) {
-                        setDispatchProps(id, stateProps);
+                        setDispatchProps(id, dispatchProps);
                     }
                 }
 
