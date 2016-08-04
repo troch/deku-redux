@@ -1236,10 +1236,10 @@ var require$$2$2 = Object.freeze({
 	                var dispatchPropsChanged = false;
 
 	                if (computeNewStateProps) {
-	                    var _stateProps = computeStateProps(props);
-	                    statePropsChanged = !shallowEquals(_stateProps, getStateProps(id));
+	                    var stateProps = computeStateProps(props);
+	                    statePropsChanged = !shallowEquals(stateProps, getStateProps(id));
 	                    if (statePropsChanged) {
-	                        setStateProps(id, _stateProps);
+	                        setStateProps(id, stateProps);
 	                    }
 	                }
 
@@ -1247,7 +1247,7 @@ var require$$2$2 = Object.freeze({
 	                    var dispatchProps = computeDispatchProps(props);
 	                    dispatchPropsChanged = !shallowEquals(dispatchProps, getDispatchProps(id));
 	                    if (dispatchPropsChanged) {
-	                        setDispatchProps(id, stateProps);
+	                        setDispatchProps(id, dispatchProps);
 	                    }
 	                }
 

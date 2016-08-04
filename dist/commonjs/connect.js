@@ -114,10 +114,10 @@ function connect() {
                 var dispatchPropsChanged = false;
 
                 if (computeNewStateProps) {
-                    var _stateProps = computeStateProps(props);
-                    statePropsChanged = !(0, _isEqualShallow2.default)(_stateProps, getStateProps(id));
+                    var stateProps = computeStateProps(props);
+                    statePropsChanged = !(0, _isEqualShallow2.default)(stateProps, getStateProps(id));
                     if (statePropsChanged) {
-                        setStateProps(id, _stateProps);
+                        setStateProps(id, stateProps);
                     }
                 }
 
@@ -125,7 +125,7 @@ function connect() {
                     var dispatchProps = computeDispatchProps(props);
                     dispatchPropsChanged = !(0, _isEqualShallow2.default)(dispatchProps, getDispatchProps(id));
                     if (dispatchPropsChanged) {
-                        setDispatchProps(id, stateProps);
+                        setDispatchProps(id, dispatchProps);
                     }
                 }
 
